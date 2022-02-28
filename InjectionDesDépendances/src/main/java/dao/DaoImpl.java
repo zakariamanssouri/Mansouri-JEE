@@ -6,3 +6,4 @@ public class DaoImpl implements IDAO{
         return Math.PI*100/Math.cos(10);
     }
 }
+

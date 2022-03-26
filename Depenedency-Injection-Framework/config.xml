@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans [
+        <!ELEMENT beans (bean)*>
+        <!ELEMENT bean (property)*>
+        <!ATTLIST bean
+                class CDATA #REQUIRED
+                name CDATA #REQUIRED>
+        <!ELEMENT property (#PCDATA)>
+        <!ATTLIST property
+                name CDATA #REQUIRED
+                ref CDATA #REQUIRED>
+        ]>
+<beans>
+    <bean class="dao.PostgreDB" name="db" />
+    <bean class="dao.OracleDB" name="db2" />
+    <bean class="metier.UserImpl" name="user">
+        <property name="Database" ref="db"/>
+    </bean>
+    <bean class="metier.UserImpl" name="user2">
+        <property name="Database" ref="db2"/>
+    </bean>
+</beans>

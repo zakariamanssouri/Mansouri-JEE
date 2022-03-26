@@ -11,8 +11,8 @@
                 ref CDATA #REQUIRED>
         ]>
 <beans>
-    <bean class="dao.PostgreDB" name="db" />
-    <bean class="dao.OracleDB" name="db2" />
+    <!--<bean class="dao.PostgreDB" name="db" />-->
+    <bean class="dao.OracleDB" name="db" />
     <bean class="metier.UserImpl" name="user">
         <property name="Database" ref="db"/>
     </bean>

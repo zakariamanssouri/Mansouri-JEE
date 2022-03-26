@@ -2,13 +2,16 @@ package metier;
 
 
 import dao.Database;
+import org.annotations.Autowired;
+import org.annotations.Component;
 
-
+@Component
 public class UserImpl implements User {
     private long id;
     private String name = "zakaria";
 
 
+    @Autowired
     private Database Database;
 
     public UserImpl() {

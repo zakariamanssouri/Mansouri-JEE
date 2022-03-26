@@ -1,7 +1,9 @@
 package dao;
 
 
+import org.annotations.Component;
 
+@Component
 public class OracleDB implements Database {
 
     public OracleDB() {

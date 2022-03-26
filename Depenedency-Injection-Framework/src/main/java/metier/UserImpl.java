@@ -1,5 +1,6 @@
 package metier;
 
+
 import dao.Database;
 
 
@@ -8,15 +9,19 @@ public class UserImpl implements User {
     private String name = "zakaria";
 
 
-    private Database database;
+    private Database Database;
 
     public UserImpl() {
     }
     public void getCurrentUserData() {
         System.out.println("-------------------------------------------------");
         System.out.println(this.getClass().getName() + " constructor executed");
-        database.getUserData("zakaria");
+        Database.getUserData("zakaria");
         System.out.println("-------------------------------------------------");
+    }
+
+    public void setDatabase(Database Database) {
+        this.Database = Database;
     }
 }
 

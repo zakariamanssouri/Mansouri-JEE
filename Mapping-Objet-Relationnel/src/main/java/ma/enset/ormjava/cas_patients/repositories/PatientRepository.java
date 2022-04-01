@@ -1,5 +1,6 @@
-package ma.enset.ormjpa.repositories;
-import ma.enset.ormjpa.entites.Patient;
+package ma.enset.ormjava.cas_patients.repositories;
+
+import ma.enset.ormjava.cas_patients.entites.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

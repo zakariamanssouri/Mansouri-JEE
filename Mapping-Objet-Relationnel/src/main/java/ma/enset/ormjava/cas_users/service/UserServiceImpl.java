@@ -16,41 +16,34 @@ import java.util.UUID;
 @Transactional
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
-
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
-
-
-
     @Override
     public User addNewUser(User user) {
         user.setUserId(UUID.randomUUID().toString());
         return userRepository.save(user);
     }
-
     @Override
     public Role addNewRole(Role role) {
         return roleRepository.save(role);
 
     }
-
     @Override
     public User findUserByUserName(String username) {
         return userRepository.findUserByUsername(username);
     }
-
     @Override
     public Role findRolByName(String rolename) {
         return roleRepository.findRoleByName(rolename);
     }
-
     @Override
     public void addRoleToUser(String username, String rolename) {
         User user = findUserByUserName(username);
         Role role = findRolByName(rolename);
-        user.getRoles().add(role);
-        role.getUsers().add(user);
-        userRepository.save(user);
+        if (user.getRoles()!=null) {
+            user.getRoles().add(role);
+            role.getUsers().add(user);
 
+        }
     }
 }

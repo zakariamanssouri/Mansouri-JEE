@@ -21,5 +21,4 @@ public class User {
 
     @ManyToMany(mappedBy ="users",fetch = FetchType.EAGER)
     List<Role> roles= new ArrayList<>();
-
 }

@@ -76,19 +76,20 @@ public class OrmJavaApplication {
 
 
 			User user1 = new User();
-			user.setUsername("hicham");
-			user.setPassword("123456");
+			user1.setUsername("hicham");
+			user1.setPassword("123456");
 			userService.addNewUser(user1);
 
 
 			User user2 = new User();
-			user.setUsername("youssef");
-			user.setPassword("123456");
+			user2.setUsername("youssef");
+			user2.setPassword("123456");
+
 			userService.addNewUser(user2);
 
-			Stream.of("STUDENT","ADMIN","USER").forEach(rolename->{
+			Stream.of("STUDENT","ADMIN","USER").forEach(roleName->{
 				Role role = new Role();
-				role.setName(rolename);
+				role.setName(roleName);
 				userService.addNewRole(role);
 			});
 
@@ -101,8 +102,6 @@ public class OrmJavaApplication {
 
 			userService.addRoleToUser("youssef","ADMIN");
 			userService.addRoleToUser("zakaria","USER");
-
-
 
 
 

@@ -5,6 +5,11 @@ import ma.enset.ormjava.cas_patients.repositories.ConsultationRepository;
 import ma.enset.ormjava.cas_patients.repositories.MedecinRepository;
 import ma.enset.ormjava.cas_patients.repositories.PatientRepository;
 import ma.enset.ormjava.cas_patients.repositories.RendezVousRepository;
+import ma.enset.ormjava.cas_users.entities.Role;
+import ma.enset.ormjava.cas_users.entities.User;
+import ma.enset.ormjava.cas_users.repositories.RoleRepository;
+import ma.enset.ormjava.cas_users.repositories.UserRepository;
+import ma.enset.ormjava.cas_users.service.UserService;
 import net.bytebuddy.utility.RandomString;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -13,6 +18,7 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Stream;
 
 @SpringBootApplication
 public class OrmJavaApplication {
@@ -22,7 +28,13 @@ public class OrmJavaApplication {
 	}
 
 	@Bean
-	CommandLineRunner commandLineRunner(PatientRepository patientRepository, RendezVousRepository rendezVousRepository, MedecinRepository medecinRepository, ConsultationRepository consultationRepository) {
+	CommandLineRunner commandLineRunner(
+			PatientRepository patientRepository,
+			RendezVousRepository rendezVousRepository,
+			MedecinRepository medecinRepository,
+			ConsultationRepository consultationRepository,
+			UserService userService
+			) {
 		return args -> {
 
 			//création des patients
@@ -57,15 +69,49 @@ public class OrmJavaApplication {
 			consultationRepository.save(new Consultation(null, new Date(), "rapport", rendezVousRepository.findById(6L).orElse(null)));
 
 
-			System.out.println("========================");
-			System.out.println("affichage des patients qui ont le nom : zakaria");
-			List<Patient> patients = patientRepository.chercherPatients("%zakaria%");
-			if (patients != null) {
-				for (Patient patient : patients) {
-					System.out.println(patient.getNom()+" "+patient.getId()+" "+patient.getDateNaissance());
-				}
-			}
-			System.out.println("========================");
+			User user = new User();
+			user.setUsername("zakaria");
+			user.setPassword("123456");
+			userService.addNewUser(user);
+
+
+			User user1 = new User();
+			user.setUsername("hicham");
+			user.setPassword("123456");
+			userService.addNewUser(user1);
+
+
+			User user2 = new User();
+			user.setUsername("youssef");
+			user.setPassword("123456");
+			userService.addNewUser(user2);
+
+			Stream.of("STUDENT","ADMIN","USER").forEach(rolename->{
+				Role role = new Role();
+				role.setName(rolename);
+				userService.addNewRole(role);
+			});
+
+			userService.addRoleToUser("zakaria","ADMIN");
+			userService.addRoleToUser("zakaria","STUDENT");
+			userService.addRoleToUser("zakaria","USER");
+
+			userService.addRoleToUser("hicham","STUDENT");
+			userService.addRoleToUser("hicham","USER");
+
+			userService.addRoleToUser("youssef","ADMIN");
+			userService.addRoleToUser("zakaria","USER");
+
+
+
+
+
+
+
+
+
+
+
 
 		};
 	}

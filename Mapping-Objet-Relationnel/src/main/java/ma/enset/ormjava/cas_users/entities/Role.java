@@ -12,9 +12,10 @@ import java.util.List;
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Role {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String description;
+    @Column(unique = true,length = 20)
     private String name;
-    @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     List<User> users = new ArrayList<>();
 }

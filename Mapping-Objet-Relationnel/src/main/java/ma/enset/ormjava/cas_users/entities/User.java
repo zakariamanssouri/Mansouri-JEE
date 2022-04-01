@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,11 +14,12 @@ import java.util.List;
 @AllArgsConstructor
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String userId;
+    @Column(unique = true,length = 20)
     private String username;
     private String password;
 
-    List<Role> roles= new ArrayList();
+    @ManyToMany(mappedBy ="users",fetch = FetchType.EAGER)
+    List<Role> roles= new ArrayList<>();
 
 }

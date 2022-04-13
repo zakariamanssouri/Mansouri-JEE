@@ -8,9 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,7 +19,7 @@ public class PatientController {
 
     private final PatientRepository patientRepository;
 
-    @GetMapping(path = "/index")
+    @GetMapping(path = "/user/index")
     public String patients(Model model,
                            @RequestParam(name = "page", defaultValue = "0") int page,
                            @RequestParam(name = "size", defaultValue = "10") int size,
@@ -36,15 +35,11 @@ public class PatientController {
         return "patients";
     }
 
-    @GetMapping("/delete")
-    public String delete(Long id,int page,String keyword){
-        patientRepository.deleteById(id);
-        return "redirect:/index?page="+page+"&keyword="+keyword;
-    }
+
 
     @GetMapping("/")
     public String home() {
-        return "redirect:/index";
+        return "redirect:/user/index";
     }
 
 
@@ -56,6 +51,36 @@ public class PatientController {
     }
 
 
+    @GetMapping("/admin/formPatients")
+    public String formPatients(Model model) {
+        model.addAttribute("patient", new Patient());
+        return "formPatients";
+    }
+
+    @PostMapping("/admin/save")
+    public String savePatient(Patient patient, BindingResult bindingResult) {
+        if (!bindingResult.hasErrors()) {
+            patientRepository.save(patient);
+        }
+        return "redirect:/user/index";
+
+    }
+
+    @GetMapping("/admin/editPatient")
+    public String editPatient(Model model,@RequestParam long id,@RequestParam int page,@RequestParam String keyword) {
+        Patient patient = patientRepository.findById(id).orElse(null);
+        model.addAttribute("patient", patient);
+        model.addAttribute("page", page);
+        model.addAttribute("keyword", keyword);
+        return "editPatient";
+
+    }
+
+    @GetMapping("/admin/delete")
+    public String delete(Long id,int page,String keyword){
+        patientRepository.deleteById(id);
+        return "redirect:/user/index?page="+page+"&keyword="+keyword;
+    }
 
 
 

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/patients.css">
+    <link rel="stylesheet" href="webjars/font-awesome">
+    <script src="http://localhost:35729/livereload.js"></script>
+</head>
+<body>
+
+    <div layout:fragment="content" class="backgroundColor container d-flex justify-content-center  mt-5 align-items-center">
+        <h3 class="text-danger">Your Are Not authorized
+            <span class="fa-solid fa-user"></span>
+        </h3>
+    </div>
+
+
+</body>
+</html>

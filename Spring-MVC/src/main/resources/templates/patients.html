@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/patients.css}">
+    <script src="http://localhost:35729/livereload.js"></script>
+</head>
+<body>
+
+    <div layout:fragment="content" class="backgroundColor">
+        <div class="container mt-4 " >
+            <div class="card shadow" >
+                <div class="card-header bg-white p-4 d-flex justify-content-center">
+                    <h3>List des Patients</h3>
+                </div>
+                <div class="card-body  ">
+                    <form th:action="@{/user/index}" method="GET" class="d-flex justify-content-center align-items-center">
+                        <label for="keyword">Keyword</label>
+                        <input class="ms-3" type="text" name="keyword" id="keyword" th:value="${keyword}" >
+                        <button type="submit" class="btn  btn-primary ms-2 rounded-pill">Rechercher</button>
+                    </form>
+                    <table class="table align-middle mb-0 bg-white  mt-3 rounded-3">
+                        <thead class="text-white primary-color" style="background-image: linear-gradient(to right top, #6d2da0, #8c2cab, #ab28b4, #cb21ba, #eb12be);">
+                        <tr class="text-center">
+                            <th>ID</th>
+                            <th>Nom</th>
+                            <th>Date</th>
+                            <th>Malade</th>
+                            <th>Score</th>
+                            <th sec:authorize="hasAuthority('ADMIN')">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="p:${patientsList}" class="text-center">
+                            <td th:text="${p.id}"></td>
+                            <td th:text="${p.nom}"></td>
+                            <td th:text="${p.dateNaissance}"></td>
+                            <td th:text="${p.malade}"></td>
+                            <td th:text="${p.score}"></td>
+                            <td sec:authorize="hasAuthority('ADMIN')">
+                                <a onclick="return confirm('are you sure ?')" th:href="@{/admin/delete(id=${p.id},page=${currentPage},keyword=${keyword})}" class="btn btn-danger">Delete</a>
+                                <a th:href="@{/admin/editPatient(id=${p.id},page=${currentPage},keyword=${keyword})}" class="btn btn-info ms-2">Edit</a>
+                            </td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="">
+                        <ul class="nav nav-pills  d-flex justify-content-center p-lg-4  ">
+                            <li th:each="page,status:${pages}" >
+                                <a th:class="${status.index==currentPage ? 'btn btn-info ms-2 mt-2 rounded-circle': 'btn btn-outline-info ms-2 mt-2 rounded-circle'}"
+                                   th:text="${status.index}" th:href="@{/user/index(page=${status.index},keyword=${keyword})}">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

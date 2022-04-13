@@ -19,7 +19,7 @@ public class AppRole {
     private String roleName;
     private String description;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<AppUser> appUsers = new ArrayList<>();
 
 }

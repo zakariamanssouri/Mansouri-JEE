@@ -1,105 +1,28 @@
 <div id="top"></div>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
 
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
-<!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-<h3 align="center">project_title</h3>
+<h3 align="center">Gestion des Patients</h3>
 
   <p align="center">
-    project_description
-    <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    Application Web JEE basée sur Spring MVC, Thylemeaf et Spring Data JPA qui permet de gérer les patients.
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <br />
+ 
   </p>
 </div>
 
 
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
 
 
 
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
-### Built With
-
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+## Built With
+* [Spring](https://spring.io/)
+* [Thymeleaf](https://www.thymeleaf.org/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -108,123 +31,98 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+We will create a web application based on spring and thymleaf template engine , also we will use spring security in order to secure our app 🤙   .
 
 
+### Creation of Patient Entity
+ [Patient.java](https://github.com/zakariamanssouri/Mansouri-JEE/blob/master/Spring-MVC/src/main/java/ma/enset/springmvc/entites/Patient.java)
+ <br>
+ ![image](https://user-images.githubusercontent.com/80859231/163098843-bc1f3450-7343-4951-8380-2cf419dbcfb3.png)
 
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+### Creation of Patient Repository
+ [PatientRepository.java](https://github.com/zakariamanssouri/Mansouri-JEE/blob/master/Spring-MVC/src/main/java/ma/enset/springmvc/repositories/PatientRepository.java)
+ <br>
+ ![image](https://user-images.githubusercontent.com/80859231/163099328-e851078f-7fe6-4234-87b7-3196aee46833.png)
 
 
+### Creation of Patient Controller
 
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+this controller will handle all app requests , it has a lot of functions but here i will mention only one <br>
+ [PatientController.java](https://github.com/zakariamanssouri/Mansouri-JEE/blob/master/Spring-MVC/src/main/java/ma/enset/springmvc/web/PatientController.java)
+ <br>
+![image](https://user-images.githubusercontent.com/80859231/163398203-0326468c-9c8d-4e7f-a2c1-840b0d40b85e.png)
 
 
+### Security 
+in this section we will secure our app by adding users with roles , so we will create two entities one for users and one for roles.
+<br>
+#### User entity
+* [AppUser.java](https://github.com/zakariamanssouri/Mansouri-JEE/blob/master/Spring-MVC/src/main/java/ma/enset/springmvc/security/entities/AppUser.java)
 
-<!-- LICENSE -->
-## License
+![image](https://user-images.githubusercontent.com/80859231/163400259-666d35cc-6dee-4693-acf9-6cd5ca78d1ca.png)
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+#### Role entity
+* [AppRole.java](https://github.com/zakariamanssouri/Mansouri-JEE/blob/master/Spring-MVC/src/main/java/ma/enset/springmvc/security/entities/AppRole.java)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+![image](https://user-images.githubusercontent.com/80859231/163400872-d5b19b0c-beab-46d5-9777-f9d9a1a98407.png)
+
+Now we should create repositories for both entities
+####  User Repository
+* [AppUserRepository.java](https://github.com/zakariamanssouri/Mansouri-JEE/blob/master/Spring-MVC/src/main/java/ma/enset/springmvc/security/repositories/AppUserRepository.java)
+
+![image](https://user-images.githubusercontent.com/80859231/163401598-a5a1ea0f-f1ea-474a-b2c9-226b977dccf0.png)
+
+####  Role Repository
+* [AppRoleRepository.java](https://github.com/zakariamanssouri/Mansouri-JEE/blob/master/Spring-MVC/src/main/java/ma/enset/springmvc/security/repositories/AppUserRepository.java)
+
+![image](https://user-images.githubusercontent.com/80859231/163402055-50fc5e93-41cc-4004-bd07-92e5f55c42fe.png)
+
+Now we should add an interface that contains all methods we will use to handle users with their roles
+
+### SecurityService
+* [SecurityService.java](https://github.com/zakariamanssouri/Mansouri-JEE/blob/master/Spring-MVC/src/main/java/ma/enset/springmvc/security/service/SecurityService.java)
+
+![image](https://user-images.githubusercontent.com/80859231/163402966-80f58831-8ab6-4192-ada6-dd721e64b18b.png)
+
+### Implementation of SecurityService 
+
+* [SecurityServiceImpl.java](https://github.com/zakariamanssouri/Mansouri-JEE/blob/master/Spring-MVC/src/main/java/ma/enset/springmvc/security/service/SecurityService.java)
+
+![image](https://user-images.githubusercontent.com/80859231/163403482-b345e4e8-4dc5-442c-939a-2f8da123ac40.png)
+
+the image above dosen't contains all implemented methods .
+
+### UserDetailsService 
+
+* [UserDetailsServiceImpl.java](https://github.com/zakariamanssouri/Mansouri-JEE/blob/master/Spring-MVC/src/main/java/ma/enset/springmvc/security/service/UserDetailsServiceImpl.java)
+
+
+![image](https://user-images.githubusercontent.com/80859231/163404494-68ded470-8ea0-4160-a860-7ef95f59cb39.png)
+
+### SecurityConfig
+* [SecurityConfig.java]()
+
+![image](https://user-images.githubusercontent.com/80859231/163414585-ffb6693c-caeb-4f98-a931-b619627a2c58.png)
+
+
+### Pages
+#### Home
+![image](https://user-images.githubusercontent.com/80859231/163399525-64151d2e-b0ca-4431-8e4a-21b470a04acb.png)
+
+#### Login
+![image](https://user-images.githubusercontent.com/80859231/163418733-f209ab75-3f39-4dde-b9ec-d9b60019a7ba.png)
+
+### form Patient
+![image](https://user-images.githubusercontent.com/80859231/163418830-bf911085-8e26-4401-b629-b5b4e2bf131e.png)
 
 
 
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Zakaria Mansouri -- zakariyamanssouri01@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
+Project Link: [https://github.com/zakariamanssouri/Mansouri-JEE/tree/master/Spring-MVC](https://github.com/zakariamanssouri/Mansouri-JEE/tree/master/Spring-MVC)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
